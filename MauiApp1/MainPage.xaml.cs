@@ -22,12 +22,12 @@ namespace MauiApp1
             }
         }
 
-        private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void OnSelectionChanged(object sender, SelectionChangedEventArgs el)
         {
-            selectedItem = e.CurrentSelection.FirstOrDefault() as ShoppingItem;
+            selectedItem = el.CurrentSelection.FirstOrDefault() as ShoppingItem;
         }
 
-        private async void OnDeleteButtonClicked(object sender, EventArgs e)
+        private async void OnDeleteButtonClicked(object sender, EventArgs el)
         {
             if (selectedItem != null)
             {
@@ -36,7 +36,7 @@ namespace MauiApp1
             }
             else
             {
-                await DisplayAlert("Info", "Proszę wybrać przedmiot do usunięcia.", "OK");
+                await DisplayAlert("Info", "Wybierz co chcesz usunąć", "OK");
             }
         }
     }
