@@ -1,55 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace MauiApp1
 {
     public partial class MainPage : ContentPage
     {
-        List<string> items = new List<string>();
+        public ObservableCollection<ShoppingItem> Items { get; set; } = new();
+        private ShoppingItem selectedItem;
 
         public MainPage()
         {
             InitializeComponent();
-            Lista.ItemsSource = items;
+            ItemsCollection.ItemsSource = Items;
         }
 
-        private async void Dodaj_Clicked(object sender, EventArgs e)
+        private void OnAddButtonClicked(object sender, EventArgs e)
         {
-            string tekst = InputBox.Text?.Trim();
-
-            if (!string.IsNullOrEmpty(tekst))
+            if (!string.IsNullOrWhiteSpace(ItemEntry.Text))
             {
-                items.Add(tekst);
+                Items.Add(new ShoppingItem { Name = ItemEntry.Text });
+                ItemEntry.Text = string.Empty;
+            }
+        }
 
-                Lista.ItemsSource = null;
-                Lista.ItemsSource = items;
+        private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedItem = e.CurrentSelection.FirstOrDefault() as ShoppingItem;
+        }
 
-                InputBox.Text = string.Empty;
+        private async void OnDeleteButtonClicked(object sender, EventArgs e)
+        {
+            if (selectedItem != null)
+            {
+                Items.Remove(selectedItem);
+                selectedItem = null;
             }
             else
             {
-                await DisplayAlert("!", "Wpisz coś","ok");
+                await DisplayAlert("Info", "Proszę wybrać przedmiot do usunięcia.", "OK");
             }
         }
-        private async void Usun_Clicked(object sender, EventArgs e)
-        {
-            if (items.Count > 0)
-            {
-                items.RemoveAt(items.Count - 1);
+    }
 
-                Lista.ItemsSource = null;
-                Lista.ItemsSource = items;
-                Console.WriteLine("usuń");
-
-            }
-            else
-            {
-                await DisplayAlert("!", "Lista jest pusta", "ok");
-            }
-        }
-
-
-
+    public class ShoppingItem
+    {
+        public string Name { get; set; }
     }
 }
-
