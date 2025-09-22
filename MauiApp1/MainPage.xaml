@@ -7,15 +7,16 @@
 
     <Grid Padding="20"
           RowDefinitions="Auto, Auto, *, Auto"
-          ColumnDefinitions="*, Auto">
+          ColumnDefinitions="*, Auto"
+          BackgroundColor="#fdbd9b">
 
-        <Label Text=" "
-               Style="{StaticResource HeaderLabelStyle}"
+        <Label Text="Lista zakupów"
+               Style="{StaticResource HeaderStyle}"
                Grid.Row="0"
                Grid.ColumnSpan="2"/>
 
         <Entry x:Name="ItemEntry"
-               Placeholder="Dodaj produkt..."
+               Placeholder="Dodaj produkt"
                Grid.Row="1"
                Grid.Column="0"
                Style="{StaticResource EntryStyle}"/>
@@ -24,7 +25,7 @@
                 Clicked="OnAddButtonClicked"
                 Grid.Row="1"
                 Grid.Column="1"
-                Style="{StaticResource PrimaryButtonStyle}"/>
+                Style="{StaticResource AddButtonStyle}"/>
 
         <CollectionView x:Name="ItemsCollection"
                         Grid.Row="2"
@@ -32,7 +33,7 @@
                         Grid.ColumnSpan="2"
                         SelectionMode="Single"
                         SelectionChanged="OnSelectionChanged"
-                        BackgroundColor="White"
+                        BackgroundColor="#ffe7db"
                         HeightRequest="300">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
@@ -48,6 +49,6 @@
                 Clicked="OnDeleteButtonClicked"
                 Grid.Row="3"
                 Grid.Column="1"
-                Style="{StaticResource DangerButtonStyle}"/>
+                Style="{StaticResource DeleteButtonStyle}"/>
     </Grid>
 </ContentPage>
