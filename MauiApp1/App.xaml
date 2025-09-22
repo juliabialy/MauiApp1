@@ -4,7 +4,7 @@
              x:Class="MauiApp1.App">
     <Application.Resources>
 
-        <Style x:Key="HeaderLabelStyle" TargetType="Label">
+        <Style x:Key="HeaderStyle" TargetType="Label">
             <Setter Property="FontSize" Value="28"/>
             <Setter Property="FontAttributes" Value="Bold"/>
             <Setter Property="TextColor" Value="#333"/>
@@ -15,14 +15,14 @@
   
         <Style x:Key="EntryStyle" TargetType="Entry">
             <Setter Property="FontSize" Value="16"/>
-            <Setter Property="BackgroundColor" Value="White"/>
+            <Setter Property="BackgroundColor" Value="PapayaWhip"/>
             <Setter Property="TextColor" Value="#333"/>
             <Setter Property="Margin" Value="0,10,10,10"/>
             <Setter Property="HeightRequest" Value="40"/>
         </Style>
 
-  
-        <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+
+        <Style x:Key="AddButtonStyle" TargetType="Button">
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="BackgroundColor" Value="#4CAF50"/>
             <Setter Property="TextColor" Value="White"/>
@@ -31,7 +31,7 @@
         </Style>
 
    
-        <Style x:Key="DangerButtonStyle" TargetType="Button">
+        <Style x:Key="DeleteButtonStyle" TargetType="Button">
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="BackgroundColor" Value="#f44336"/>
             <Setter Property="TextColor" Value="White"/>
@@ -42,7 +42,7 @@
 
 
         <Style x:Key="ItemFrameStyle" TargetType="Frame">
-            <Setter Property="BorderColor" Value="#ddd"/>
+            <Setter Property="BorderColor" Value="#ff6010"/>
             <Setter Property="CornerRadius" Value="10"/>
             <Setter Property="Padding" Value="10"/>
             <Setter Property="Margin" Value="5"/>
@@ -51,7 +51,7 @@
 
         <Style x:Key="ItemLabelStyle" TargetType="Label">
             <Setter Property="FontSize" Value="18"/>
-            <Setter Property="TextColor" Value="#555"/>
+            <Setter Property="TextColor" Value="#333"/>
         </Style>
     </Application.Resources>
 </Application>
